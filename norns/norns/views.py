@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.conf import settings
 import stripe
@@ -14,7 +12,6 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         """Get request for homepage class view."""
         context = super().get_context_data(**kwargs)
-        # import pdb; pdb.set_trace()
         return context
 
 
@@ -32,8 +29,6 @@ class StoreView(TemplateView):
         """Handle post request for order form."""
         stripe.api_key = settings.STRIPE_SECRET_KEY
 
-        # import pdb; pdb.set_trace()
-
         token = self.request.POST['stripeToken']
 
         charge = stripe.Charge.create(
@@ -45,6 +40,12 @@ class StoreView(TemplateView):
         return redirect('home')
 
 
-def about_view(request):
-    """Return about view."""
-    return render(request, 'about.html')
+class AboutView(TemplateView):
+    """View class for the about page."""
+
+    template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
+        """Get request for about class view."""
+        context = super().get_context_data(**kwargs)
+        return context

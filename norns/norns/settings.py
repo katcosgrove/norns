@@ -73,16 +73,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ], 
+            ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'norns.wsgi.application'
 
-# sg-072cc9f0683a6dc6e
-# sg-072cc9f0683a6dc6e
-# 34R-9zu-xf9-fnq
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
